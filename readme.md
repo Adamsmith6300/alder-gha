@@ -9,6 +9,11 @@ AI-powered security analysis for your code repositories using Large Language Mod
 - **Attack Path Analysis**: Identifies chains of vulnerabilities that could be exploited together
 - **Detailed Reports**: Generates comprehensive reports in markdown and HTML
 
+## Prerequisites
+
+1. **API Key Required**: This action requires an API key to run. Purchase scan credits at [alderaiagent.com/pricing](https://alderaiagent.com/pricing).
+2. **GitHub Secret**: After obtaining your API key, add it as a repository secret named `ALDER_API_KEY`.
+
 ## Usage
 
 Add this action to your GitHub workflow:
@@ -35,6 +40,7 @@ jobs:
         uses: adamsmith6300/alder-security-agent@v1
         with:
           analyze-attack-paths: 'true'  # Enable attack path analysis
+          api-key: ${{ secrets.ALDER_API_KEY }}  # Required API key
 
       - name: Upload security reports
         uses: actions/upload-artifact@v3
@@ -43,11 +49,23 @@ jobs:
           path: './security-reports'
 ```
 
+## Setting Up the API Key
+
+1. Purchase scan credits at [alderaiagent.com/pricing](https://alderaiagent.com/pricing)
+2. Copy the API key provided after purchase
+3. In your GitHub repository:
+   - Go to Settings → Secrets and variables → Actions
+   - Click "New repository secret"
+   - Name: `ALDER_API_KEY`
+   - Value: Your API key
+   - Click "Add secret"
+
 ## Inputs
 
 | Input                | Description                            | Required | Default |
 |---------------------|----------------------------------------|----------|---------|
 | `analyze-attack-paths` | Whether to perform attack path analysis | No       | false   |
+| `api-key` | Your Alder Security Agent API key | Yes       | N/A   |
 
 ## Default Settings
 
