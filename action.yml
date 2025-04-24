@@ -1,0 +1,27 @@
+name: 'Alder Security Agent'
+description: 'AI-powered security analysis for your code repositories using Large Language Models'
+author: 'Alder AI'
+
+# Define inputs the action accepts
+inputs:
+  analyze-attack-paths:
+    description: 'Whether to perform attack path analysis'
+    required: false
+    default: 'false'
+  api-key:
+    description: 'Your Alder Security Agent API key. Purchase scan credits at example.com/pricing'
+    required: true
+
+# Branding for the marketplace
+branding:
+  icon: 'shield'
+  color: 'green'
+
+# Defines how the action runs
+runs:
+  using: 'docker'
+  image: 'docker://ghcr.io/adamsmith6300/alder-security-agent:v1.0.0'
+  args:
+    - ${{ inputs.analyze-attack-paths }}
+  env:
+    ALDER_API_KEY: ${{ inputs.api-key }}

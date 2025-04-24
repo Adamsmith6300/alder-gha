@@ -1,0 +1,42 @@
+name: Security Analysis Example
+
+on:
+  # Manually trigger the workflow
+  workflow_dispatch:
+  
+  # Run on push to main branch (optional)
+  # push:
+  #   branches: [ main ]
+  
+  # Run on pull requests (optional)
+  # pull_request:
+  #   branches: [ main ]
+  
+  # Schedule regular scans (optional)
+  # schedule:
+  #   - cron: '0 0 * * 0'  # Weekly at midnight on Sunday
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    name: Analyze Repository Security
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Full git history for better analysis
+      
+      - name: Run Alder Security Agent
+        uses: adamsmith6300/alder-security-agent@v1
+        with:
+          # Enable attack path analysis
+          analyze-attack-paths: 'true'
+          # Your API key from purchasing scan credits
+          api-key: ${{ secrets.ALDER_API_KEY }}
+      
+      - name: Upload security reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: security-reports
+          path: './security-reports' 
