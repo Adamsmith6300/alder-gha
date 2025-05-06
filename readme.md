@@ -13,7 +13,7 @@ Visit our website: [https://alderaiagent.com/](https://alderaiagent.com/)
 
 ## Prerequisites
 
-1. **API Key Required**: This action requires an API key to run. Purchase scan credits at [alderaiagent.com/pricing](https://alderaiagent.com/pricing).
+1. **API Key Required**: This action requires an API key to run. Purchase scan credits at [alderaiagent.com/](https://alderaiagent.com/).
 2. **GitHub Secret**: After obtaining your API key, add it as a repository secret named `ALDER_API_KEY`.
 
 ## Usage
@@ -52,7 +52,7 @@ jobs:
 
 ## Setting Up the API Key
 
-1. Purchase scan credits at [alderaiagent.com/pricing](https://alderaiagent.com/pricing)
+1. Purchase scan credits at [alderaiagent.com/](https://alderaiagent.com/)
 2. Copy the API key provided after purchase. **It will be sent to the email address used during checkout.**
 3. In your GitHub repository:
    - Go to Settings → Secrets and variables → Actions
@@ -101,7 +101,7 @@ For support with this GitHub Action:
 
 ## Privacy and Data
 
-This action does not store your code or vulnerability findings. All analysis is performed using AI models, and your code is not used to train the models.
+This action does not store your code or vulnerability findings. All analysis is performed using AI models, and your code is not used to train the models. For more details, please read our [Privacy Policy](PRIVACY-POLICY.md).
 
 ## License
 
