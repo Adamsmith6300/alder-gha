@@ -23,18 +23,18 @@ jobs:
     
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Full git history for better analysis
-      
+          fetch-depth: 0
+
       - name: Run Alder AI Security Agent
-        uses: adamsmith6300/alder-gha@v1
+        uses: adamsmith6300/alder-gha@v1.0.0
         with:
-          # Your API key from purchasing scan credits
-          api-key: ${{ secrets.ALDER_API_KEY }}
-      
+          api-key: ${{ secrets.ALDER_API_KEY }}  # Required API key
+
       - name: Upload security reports
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: security-reports
-          path: './security-reports' 
+          path: './security-reports'
+

@@ -24,27 +24,25 @@ Add this action to your GitHub workflow:
 name: Security Analysis
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  # Allows manual triggering from the Actions tab
+  workflow_dispatch:
 
 jobs:
   analyze:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Run Alder AI Security Agent
-        uses: adamsmith6300/alder-gha@v1
+        uses: adamsmith6300/alder-gha@v1.0.0 # Use the appropriate version
         with:
           api-key: ${{ secrets.ALDER_API_KEY }}  # Required API key
 
       - name: Upload security reports
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: security-reports
           path: './security-reports'

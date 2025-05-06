@@ -19,3 +19,7 @@ runs:
   image: 'docker://ghcr.io/adamsmith6300/alder-security-agent:latest'
   env:
     ALDER_API_KEY: ${{ inputs.api-key }}
+    SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+    SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+    GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+    OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
