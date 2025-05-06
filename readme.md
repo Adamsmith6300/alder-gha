@@ -1,13 +1,15 @@
-# Alder Security Agent GitHub Action
+# Alder AI Security Agent
 
 AI-powered security analysis for your code repositories using Large Language Models.
+
+Visit our website: [https://alderaiagent.com/](https://alderaiagent.com/)
 
 ## Features
 
 - **AI-Powered Analysis**: Uses LLMs to detect security vulnerabilities
 - **Comprehensive Coverage**: Analyzes 10 security categories including authentication, authorization, injection attacks, XSS, and more
-- **Attack Path Analysis**: Identifies chains of vulnerabilities that could be exploited together
-- **Detailed Reports**: Generates comprehensive reports in markdown and HTML
+- **Detailed Reports**: Generates comprehensive reports in markdown
+- **Easy Integration**: Simply add to your existing GitHub Actions workflow
 
 ## Prerequisites
 
@@ -34,12 +36,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Full git history for better analysis
+          fetch-depth: 0
 
-      - name: Run Alder Security Agent
-        uses: adamsmith6300/alder-security-agent@v1
+      - name: Run Alder AI Security Agent
+        uses: adamsmith6300/alder-gha@v1
         with:
-          analyze-attack-paths: 'true'  # Enable attack path analysis
           api-key: ${{ secrets.ALDER_API_KEY }}  # Required API key
 
       - name: Upload security reports
@@ -52,7 +53,7 @@ jobs:
 ## Setting Up the API Key
 
 1. Purchase scan credits at [alderaiagent.com/pricing](https://alderaiagent.com/pricing)
-2. Copy the API key provided after purchase
+2. Copy the API key provided after purchase. **It will be sent to the email address used during checkout.**
 3. In your GitHub repository:
    - Go to Settings → Secrets and variables → Actions
    - Click "New repository secret"
@@ -64,14 +65,13 @@ jobs:
 
 | Input                | Description                            | Required | Default |
 |---------------------|----------------------------------------|----------|---------|
-| `analyze-attack-paths` | Whether to perform attack path analysis | No       | false   |
 | `api-key` | Your Alder Security Agent API key | Yes       | N/A   |
 
 ## Default Settings
 
 The action uses these default settings:
 - Output Directory: `./security-reports`
-- Report Format: Both markdown and HTML
+- Report Format: markdown
 - All Security Categories: Analyzed
 
 ## Security Categories Analyzed
@@ -89,37 +89,21 @@ The action uses these default settings:
 
 ## Pricing
 
-Alder Security Agent uses a pay-per-scan pricing model:
+Alder AI Security Agent uses a pay-per-scan pricing model to cover costs, with all scans purchased through our website:
 
-| Package | Price | Value |
-|---------|-------|-------|
-| 1 Scan | $5 | Basic security scan |
-| 5 Scans | $20 | $4 per scan (20% savings) |
-| 10 Scans | $35 | $3.50 per scan (30% savings) |
-
-To purchase scan credits, visit our [website](https://alderaiagent.com/pricing). Once purchased, you'll receive an API key to use with the action.
-
-Each scan includes:
-- Full codebase security analysis
-- All 10 security categories
-- Attack path analysis
-- Comprehensive HTML and Markdown reports
-
-For enterprise customers or larger scan volumes, please [contact us](mailto:adam@alderaiagent.com) for custom pricing.
+Visit our [website](https://alderaiagent.com/) to purchase scan credits. After purchase, you'll receive an API key to use with the GitHub Action.
 
 ## Support
 
 For support with this GitHub Action:
 - Email: [adam@alderaiagent.com](mailto:adam@alderaiagent.com)
-- GitHub Issues: [Create an issue](https://github.com/adamsmith6300/alder-security-agent/issues)
+- GitHub Issues: [Create an issue](https://github.com/adamsmith6300/alder-gha/issues)
 
 ## Privacy and Data
 
-This action does not store your code or vulnerability findings. All analysis is performed using AI models, and your code is not used to train the models. For more details, read our [Privacy Policy](https://example.com/privacy).
+This action does not store your code or vulnerability findings. All analysis is performed using AI models, and your code is not used to train the models.
 
 ## License
 
 [MIT License](LICENSE)
-
-*For commercial use in GitHub Marketplace, please see [commercial terms](https://example.com/commercial-terms).*
 
