@@ -28,9 +28,10 @@ jobs:
           fetch-depth: 0
 
       - name: Run Alder AI Security Agent
-        uses: adamsmith6300/alder-gha@v1.0.0
+        uses: adamsmith6300/alder-gha@v1.0.2
         with:
           api-key: ${{ secrets.ALDER_API_KEY }}  # Required API key
+          extra-ignore-dirs: 'dist,tmp,docs' # Optional: comma-separated list of extra directories to ignore
 
       - name: Upload security reports
         uses: actions/upload-artifact@v4

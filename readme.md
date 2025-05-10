@@ -37,9 +37,10 @@ jobs:
           fetch-depth: 0
 
       - name: Run Alder AI Security Agent
-        uses: adamsmith6300/alder-gha@v1.0.0 # Use the appropriate version
+        uses: adamsmith6300/alder-gha@v1.0.2 # Use the appropriate version
         with:
           api-key: ${{ secrets.ALDER_API_KEY }}  # Required API key
+          extra-ignore-dirs: 'dist,build,docs' # Optional: Comma-separated list of extra directories to ignore
 
       - name: Upload security reports
         uses: actions/upload-artifact@v4
@@ -64,6 +65,9 @@ jobs:
 | Input                | Description                            | Required | Default |
 |---------------------|----------------------------------------|----------|---------|
 | `api-key` | Your Alder Security Agent API key | Yes       | N/A   |
+| `extra-ignore-dirs` | Comma-separated list of additional directory names to ignore (e.g., 'data,tmp,specific_folder'). Optional. | No | `''` |
+
+**Note on `extra-ignore-dirs`**: Be careful when adding directories to this list. Any directory matching a name provided here (e.g., `data`) will be completely ignored during the scanning process, including all of its subdirectories and files. This can significantly affect the analysis results if directories containing source code or relevant configuration are inadvertently excluded.
 
 ## Default Settings
 

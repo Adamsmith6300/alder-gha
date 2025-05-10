@@ -7,6 +7,10 @@ inputs:
   api-key:
     description: 'Your Alder Security Agent API key. Purchase scan credits at https://alderaiagent.com'
     required: true
+  extra-ignore-dirs:
+    description: 'Comma-separated list of additional directory names to ignore (e.g., data,tmp,specific_folder). Optional.'
+    required: false
+    default: ''
 
 # Branding for the marketplace
 branding:
@@ -19,3 +23,4 @@ runs:
   image: 'docker://ghcr.io/adamsmith6300/alder-security-agent:latest'
   env:
     ALDER_API_KEY: ${{ inputs.api-key }}
+    INPUT_EXTRA_IGNORE_DIRS: ${{ inputs.extra-ignore-dirs }}
