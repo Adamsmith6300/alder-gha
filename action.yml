@@ -15,6 +15,14 @@ inputs:
     description: "Set to 'true' to create GitHub issues for discovered vulnerabilities."
     required: false
     default: 'false'
+  github-token:
+    description: "GitHub token for authentication to create issues."
+    required: false
+    default: ''
+  github-repository:
+    description: "GitHub repository in the format 'owner/repo' also used for issue creation."
+    required: false
+    default: ''
 
 # Branding for the marketplace
 branding:
@@ -29,5 +37,5 @@ runs:
     ALDER_API_KEY: ${{ inputs.api-key }}
     INPUT_EXTRA_IGNORE_DIRS: ${{ inputs.extra-ignore-dirs }}
     INPUT_CREATE_ISSUES: ${{ inputs.create-issues }}
-    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    GITHUB_REPOSITORY: ${{ github.repository }}
+    GITHUB_TOKEN: ${{ inputs.github-token }}
+    GITHUB_REPOSITORY: ${{ inputs.github-repository }}
