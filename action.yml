@@ -29,3 +29,5 @@ runs:
     ALDER_API_KEY: ${{ inputs.api-key }}
     INPUT_EXTRA_IGNORE_DIRS: ${{ inputs.extra-ignore-dirs }}
     INPUT_CREATE_ISSUES: ${{ inputs.create-issues }}
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    GITHUB_REPOSITORY: ${{ github.repository }}
