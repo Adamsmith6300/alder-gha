@@ -11,6 +11,10 @@ inputs:
     description: 'Comma-separated list of additional directory names to ignore (e.g., data,tmp,specific_folder). Optional.'
     required: false
     default: ''
+  create-issues:
+    description: "Set to 'true' to create GitHub issues for discovered vulnerabilities."
+    required: false
+    default: 'false'
 
 # Branding for the marketplace
 branding:
@@ -24,3 +28,4 @@ runs:
   env:
     ALDER_API_KEY: ${{ inputs.api-key }}
     INPUT_EXTRA_IGNORE_DIRS: ${{ inputs.extra-ignore-dirs }}
+    INPUT_CREATE_ISSUES: ${{ inputs.create-issues }}

@@ -66,6 +66,7 @@ jobs:
 |---------------------|----------------------------------------|----------|---------|
 | `api-key` | Your Alder Security Agent API key | Yes       | N/A   |
 | `extra-ignore-dirs` | Comma-separated list of additional directory names to ignore (e.g., 'data,tmp,specific_folder'). Optional. | No | `''` |
+| `create-issues`     | Set to `'true'` to create GitHub issues for discovered vulnerabilities. Issues will be labeled with `security-alder`. | No       | `'false'` |
 
 **Note on `extra-ignore-dirs`**: Be careful when adding directories to this list. Any directory matching a name provided here (e.g., `data`) will be completely ignored during the scanning process, including all of its subdirectories and files. This can significantly affect the analysis results if directories containing source code or relevant configuration are inadvertently excluded.
 

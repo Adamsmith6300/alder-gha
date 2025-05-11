@@ -32,6 +32,7 @@ jobs:
         with:
           api-key: ${{ secrets.ALDER_API_KEY }}  # Required API key
           extra-ignore-dirs: 'dist,tmp,docs' # Optional: comma-separated list of extra directories to ignore
+          create-issues: 'true' # Optional: Set to true to create GitHub issues for findings
 
       - name: Upload security reports
         uses: actions/upload-artifact@v4
