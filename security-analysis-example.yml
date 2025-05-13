@@ -28,11 +28,14 @@ jobs:
           fetch-depth: 0
 
       - name: Run Alder AI Security Agent
-        uses: adamsmith6300/alder-gha@v1.0.2
+        uses: adamsmith6300/alder-gha@v1.0.7
         with:
           api-key: ${{ secrets.ALDER_API_KEY }}  # Required API key
           extra-ignore-dirs: 'dist,tmp,docs' # Optional: comma-separated list of extra directories to ignore
           create-issues: 'true' # Optional: Set to true to create GitHub issues for findings
+          # Provide the token and repository explicitly if create-issues is true:
+          github-token: ${{ secrets.GITHUB_TOKEN }} # No need to set this in the repo secrets its already automatically available
+          github-repository: ${{ github.repository }} # No need to set this eitherits already automatically available
 
       - name: Upload security reports
         uses: actions/upload-artifact@v4

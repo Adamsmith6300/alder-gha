@@ -5,7 +5,7 @@ author: 'Alder AI'
 # Define inputs the action accepts
 inputs:
   api-key:
-    description: 'Your Alder Security Agent API key. Purchase scan credits at https://alderaiagent.com'
+    description: 'Your Alder Security Agent API key. Purchase scan credits at https://alderagent.com'
     required: true
   extra-ignore-dirs:
     description: 'Comma-separated list of additional directory names to ignore (e.g., data,tmp,specific_folder). Optional.'

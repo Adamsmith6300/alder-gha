@@ -41,5 +41,5 @@ We may update this Privacy Policy from time to time. We will notify you of any c
 
 If you have any questions about this Privacy Policy, please contact us:
 
-*   Email: [adam@alderaiagent.com](mailto:adam@alderaiagent.com)
+*   Email: [adam@alderagent.com](mailto:adam@alderagent.com)
 *   GitHub Issues: [https://github.com/adamsmith6300/alder-gha/issues](https://github.com/adamsmith6300/alder-gha/issues) 
